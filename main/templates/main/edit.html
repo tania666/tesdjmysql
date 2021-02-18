@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+    <form class="post-form" action="/saveedit/{{ StudentsEdit.id }}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Edit Details</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <input type="hidden" value="{{ StudentsEdit.id }}" name="id" id="id">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student ID</label>
+                <div class="col-sm-4">
+                    <input type="text" name="sId" value="{{ StudentsEdit.sId }}">
+                </div>
+            </div>            
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-4">
+                    <input type="text" name="f_name" value="{{ StudentsEdit.f_name }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-4">
+                    <input type="text" name="l_name" value="{{ StudentsEdit.l_name }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-4">
+                    <input type="text" name="email" value="{{ StudentsEdit.email }}">
+                </div>
+            </div>
+            <div class="input-group mb-3">    
+                <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary" label="edit">Edit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

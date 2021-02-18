@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}View Data{% endblock %}
+
+{% block content %}
+
+    <table class="table table-hover table-stripped">
+        <thead class="thead-dark">
+        <tr> 
+            <th scope="col">sId</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for students in StudentsKirim %}
+        <tr>
+            <th scope="row">{{ students.sId }}</th>
+            <td>{{ students.f_name }}</td>
+            <td>{{ students.l_name }}</td>
+            <td>{{ students.email }}</td>
+            <td>
+                <a href="/edit/{{ students.id }}"> <span class="btn btn-primary">Edit</span></a>
+                <a href="/delete/{{ students.id }}"> <span class="btn btn-primary">Delete</span></a>    
+            </td>
+        </tr>
+            
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
